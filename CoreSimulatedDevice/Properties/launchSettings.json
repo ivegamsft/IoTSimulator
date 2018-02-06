@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "CoreSimulatedDevice": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DEVICE_KEY": "qZtQ82ZWcYyroBJkc5ulo3HbvuxHYHw7PjZP1x44w2s=",
+        "IOTHUB_URI": "ih-ten-1.azure-devices.net",
+        "DEVICE_NAME": "DeviceType-0-0"
+      }
+    }
+  }
+}
