@@ -33,7 +33,7 @@ $acrcred = New-Object System.Management.Automation.PSCredential ($acrCreds.Usern
 #Write-Host "deviceLat: "  $latitude[0] 
 #Write-Host "deviceLong: " $longitude[0] 
 #Write-Host "key: " $keys[0]
-#$EnvironmentHash = @{"IOTHUB_URI"=$loginServer;"DEVICE_NAME"=$deviceNames[0];"DEVICE_KEY"=$keys[0];"DEVICE_LATITUDE"=$latitude[0];"DEVICE_LONGITUDE"=$longitude[0]}
+#$EnvironmentHash = @{"IOTHUB_URI"=$loginServer;"DEVICE_NAME"=$deviceNames[0];"DEVICE_KEY"=$keys[0];}
 #New-AzureRmContainerGroup -ResourceGroupName $rgName -Name $deviceNames[$i] -Image $acrImageName `
 #    -Location $location -OsType Linux -Cpu 1 -MemoryInGB 1 -IpAddressType Public -RegistryCredential $acrcred -EnvironmentVariable $EnvironmentHash
 ##Show the Console output from the first container
@@ -46,8 +46,6 @@ $acrcred = New-Object System.Management.Automation.PSCredential ($acrCreds.Usern
 for($i=0; $i -lt $deviceNames.Length; $i++)
 {
     Write-Host "deviceName: " $deviceNames[$i] 
-    Write-Host "deviceLat: "  $latitude[$i] 
-    Write-Host "deviceLong: " $longitude[$i] 
     Write-Host "key: " $keys[$i]
     $EnvironmentHash = @{"IOTHUB_URI"=$loginServer;"DEVICE_NAME"=$deviceNames[$i];"DEVICE_KEY"=$keys[$i]}
     New-AzureRmContainerGroup -ResourceGroupName $rgName -Name $deviceNames[$i] -Image $acrImageName `

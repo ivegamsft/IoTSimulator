@@ -7,6 +7,9 @@
         "IOTHUB_URI": "ih-ten-1.azure-devices.net",
         "DEVICE_NAME": "DeviceType-0-0"
       }
+    },
+    "Docker": {
+      "commandName": "Docker"
     }
   }
 }

@@ -41,7 +41,6 @@ if($installAKS){
 az aks get-credentials -g $rgName -n $aksName
 
 for($i=0; $i -lt ($deviceNames.Length); $i++)
-#for($i=0; $i -lt 2; $i++)
 {
     Write-Host "deviceName: " $deviceNames[$i] 
     Write-Host "deviceModel: "  $deviceNames[$i].Substring(0,7)

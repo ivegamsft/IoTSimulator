@@ -13,8 +13,6 @@ namespace CoreSimulatedDevice
         static string iotHubUri = null;
         static string deviceKey = null;
         static string deviceName = null;
-        static string deviceLatitude = null;
-        static string deviceLongitude = null;
 
         private static async Task SendDeviceToCloudMessagesAsync()
         {
