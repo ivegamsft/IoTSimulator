@@ -1,16 +1,23 @@
 #
 # PushImageToACR.ps1
 #
-Login-AzureRmAccount
-Select-AzureRmSubscription -Subscription "d8227dbe-9b3f-4f16-91a7-78436347d345"
 
-$rgName = "rg_iot2"
-$acrName = "acriot2srp"
+$SubscriptionId = "[YOUR SUB ID]"
+$rgName = "[RESOURCE GROUP NAME]"
+$acrName = "[ACR NAME]"
+$location = "[REGION]"
+$acrImageName = "[ACR IMAGE NAME]"
+$SimulatedDeviceName = "[YOUR SIMULATED DEVICE NAME]" # ie. coresimulateddevice
+$SimulatedDeviceTag = "[YOUR SIMULATED DEVICE TAG]" # i.e. v1
+
+
+Login-AzureRmAccount
+Select-AzureRmSubscription -Subscription $SubscriptionId
 
 $acr = Get-AzureRmContainerRegistry -ResourceGroupName $rgName -RegistryName $acrName
-$acrImageName = $acr.LoginServer + "/coresimulateddevice:v1"
+$acrImageName = $acr.LoginServer + "/" + $SimulatedDeviceName + ":" + $SimulatedDeviceTag
 
-docker tag coresimulateddevice $acrImageName
+docker tag $SimulatedDeviceName $acrImageName
 
 $acrCreds = Get-AzureRmContainerRegistryCredential -RegistryName $acrName -ResourceGroupName $rgName
 

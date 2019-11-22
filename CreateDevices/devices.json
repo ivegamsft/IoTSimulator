@@ -1,0 +1,14 @@
+[
+  {
+    "DeviceId": "device-0",
+    "DeviceType": "sample",
+    "DeviceKey": "",
+    "MessageType": "standard"
+  },
+  {
+    "DeviceId": "device-1",
+    "DeviceType": "sample",
+    "DeviceKey": "",
+    "MessageType": "standard"
+  }
+]

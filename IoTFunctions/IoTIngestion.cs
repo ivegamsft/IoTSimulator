@@ -12,6 +12,8 @@ using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
 
 private static string key = TelemetryConfiguration.Active.InstrumentationKey = System.Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 private static TelemetryClient telemetry = new TelemetryClient() { InstrumentationKey = key };
@@ -27,7 +29,7 @@ public static void Run(string myIoTHubMessage, out string outputEventHubMessage,
     sw.Start();
 
     string sStartTime = DateTime.UtcNow.ToString("MM:dd:yyyy:HH:mm:ss:fff");
-    dynamic data = JsonConvert.DeserializeObject(myEventHubMessage);
+    dynamic data = JsonConvert.DeserializeObject(myIoTHubMessage);
     outputEventHubMessage = myIoTHubMessage;
     sw.Stop();
 

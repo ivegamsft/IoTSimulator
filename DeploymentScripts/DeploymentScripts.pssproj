@@ -30,7 +30,6 @@
     <Compile Include="DeployACIDevices.ps1" />
     <Compile Include="DeployAKSwithImage.ps1" />
     <Compile Include="PushImageToACR.ps1" />
-    <Compile Include="Script.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

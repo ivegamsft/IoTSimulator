@@ -13,8 +13,8 @@ namespace CreateDevices
     {
         static RegistryManager registryManager;
         static string connectionString;
-        static List<device> _devices = new List<device>();
-        static string fileName = Environment.CurrentDirectory.ToString() + "\\devices.json";
+        static List<IoTDevice> IoTDevices = new List<IoTDevice>();
+        static readonly string fileName = Environment.CurrentDirectory.ToString() + "\\devices.json";
 
 
         private static async Task RemoveDeviceAsync(string deviceId)
@@ -29,7 +29,7 @@ namespace CreateDevices
             {
                 device = await registryManager.AddDeviceAsync(new Device(deviceId));
 
-                _devices.Add(new CreateDevices.device()
+                IoTDevices.Add(new CreateDevices.IoTDevice()
                 {
                     DeviceId = device.Id,
                     DeviceType = devicetype,
@@ -48,7 +48,7 @@ namespace CreateDevices
             if (args.Length == 0)
             {
                 System.Console.WriteLine("Action [Add, Remove], Number of device types, and number per device type., and IoT Hub ConnectionString");
-                System.Console.WriteLine("Usage: CreateDevices 4  5 HostName=<connection string>");
+                System.Console.WriteLine("Usage: CreateDevices 4  5 IoTHub=<connection string>");
             }
             else
             {
@@ -88,18 +88,18 @@ namespace CreateDevices
                 registryManager.RemoveDeviceAsync(d.DeviceId.ToString()).Wait();
             }
         }
+
         private static void AddDevices(string[] args)
         {
             int iDeviceTypes = Convert.ToInt32(args[1]);
             int iNumberPerDevice = Convert.ToInt32(args[2]);
-            string deviceName = null;
 
             for (int i = 0; i < iDeviceTypes; i++)
             {
                 for (int d = 0; d < iNumberPerDevice; d++)
                 {
                     string deviceType = "DeviceType-" + i;
-                    deviceName = deviceType + "-" + d;
+                    string deviceName = deviceType + "-" + d;
                     AddDeviceAsync(deviceName, deviceType).Wait();
                 }
 
@@ -108,13 +108,13 @@ namespace CreateDevices
             using (StreamWriter file = File.CreateText(fileName))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, _devices);
+                serializer.Serialize(file, IoTDevices);
             }
             Console.WriteLine("Device file written to: " + fileName);
         }
     }
 
-    public class device
+    public class IoTDevice
     {
         public string DeviceId { get; set; }
         public string DeviceKey { get; set; }
