@@ -2,15 +2,15 @@
 Use this sample to deploy a set of sample IoT devices to ACI or AKS for load or end-to-end testing.
 
 ## Code samples
-[CoreSimulatedDevice](../CoreSimulatedDevice/) - Sample device that can be deployed as a docker container. 
+[CoreSimulatedDevice](/CoreSimulatedDevice/) - Sample device that can be deployed as a docker container. 
 Uses environment variables to launch and connect to an IoT Hub and send sample messages.
 
-[CreateDevices](../CreateDevices/) - Sample program that can be used to create and register several devices to an IoT Hub
+[CreateDevices](/CreateDevices/) - Sample program that can be used to create and register several devices to an IoT Hub
 
 Deployment scripts
-* [DeployACIDevices.ps1](../DeploymentScripts/DeployACIDevices.ps1) - Used to deploy containers to an Azure Container Instances
-* [DeployAKSwithImage.ps1](../DeploymentScripts/DeployACIDevices.ps1) - Used to deploy containers to an Azure Kuberbetes Service
-* [PushImageToACR.ps1](../DeploymentScripts/DeployACIDevices.ps1) - Used to push a tagged simulated device container to an Azure Container Registry
+* [DeployACIDevices.ps1](/DeploymentScripts/DeployACIDevices.ps1) - Used to deploy containers to an Azure Container Instances
+* [DeployAKSwithImage.ps1](/DeploymentScripts/DeployACIDevices.ps1) - Used to deploy containers to an Azure Kuberbetes Service
+* [PushImageToACR.ps1](/DeploymentScripts/DeployACIDevices.ps1) - Used to push a tagged simulated device container to an Azure Container Registry
 
 ## Deployment and usage
 
